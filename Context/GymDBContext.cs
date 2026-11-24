@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MVC_02.Entites;
+using System.Reflection;
 
 namespace MVC_02.Context
 {
@@ -13,7 +14,7 @@ namespace MVC_02.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
         #region DBsets
         public DbSet<Trainer> Trainers { get; set; } = default!;

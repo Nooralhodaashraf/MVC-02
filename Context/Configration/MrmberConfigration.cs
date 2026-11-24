@@ -6,9 +6,9 @@ namespace MVC_02.Context.Configration
 {
     public class MrmberConfigration: GymUserConfigration<Member>, IEntityTypeConfiguration<Member>
     {
-        public void Configure (EntityTypeBuilder<Member> builder)
+        public new void Configure (EntityTypeBuilder<Member> builder)
         {
-            builder.Property(X => X.CreatedAt).HasColumnName("JoinDate");
+            builder.Property(X => X.CreatedAt).HasColumnName("HireDate").HasDefaultValue("GETDATE()");
             base.Configure(builder);
         }
     }
