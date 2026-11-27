@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- BACKEND: Everything outside <main class="content"> is the same on every page-->
     <title>@ViewData["Title"] · Route Gym</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,8 +16,7 @@
 <body>
     <div class="app">
         <aside class="sidebar">
-            <!-- BACKEND: Links  instead of .html files -->
-            <a class="brand" href="index.html">
+            <a class="brand" asp-controller="Home" >
                 <span class="brand-mark">R</span>
                 <span class="brand-text">
                     <span class="brand-name">ROUTE</span>
@@ -29,24 +27,19 @@
             <nav>
                 <div class="nav-group">
                     <div class="nav-label">Overview</div>
-                    <!-- BACKEND: Home / Index -->
-                    <a class="nav-link-r" href="index.html"><i class="bi bi-grid-1x2"></i> Dashboard</a>
+                    <a class="nav-link-r" asp-controller="Home" ><i class="bi bi-grid-1x2"></i> Dashboard</a>
                 </div>
                 <div class="nav-group">
                     <div class="nav-label">People</div>
-                    <!-- BACKEND: Member / Index  -->
-                    <a class="nav-link-r" href="#"><i class="bi bi-people"></i> Members</a>
-                    <!-- BACKEND: Trainer / Index  -->
-                    <a class="nav-link-r" href="#"><i class="bi bi-person-badge"></i> Trainers</a>
+                    <a class="nav-link-r" asp-controller="Member" asp-action="Index"><i class="bi bi-people"></i> Members</a>
+                    <a class="nav-link-r" asp-controller="Trainer" asp-action="Index"><i class="bi bi-person-badge"></i> Trainers</a>
                 </div>
                 <div class="nav-group">
                     <div class="nav-label">Gym</div>
-                    <!-- BACKEND: Plan / Index -->
-                    <a class="nav-link-r" href="plans.html"><i class="bi bi-tags"></i> Plans</a>
-                    <!-- BACKEND: Membership / Index  -->
-                    <a class="nav-link-r" href="#"><i class="bi bi-card-checklist"></i> Memberships</a>
-                    <!-- BACKEND: Session / Index -->
-                    <a class="nav-link-r" href="#"><i class="bi bi-calendar-week"></i> Sessions</a>
+
+                    <a class="nav-link-r" asp-controller="plans" asp-action="index"><i class="bi bi-tags"></i> Plans</a>
+                    <a class="nav-link-r" asp-controller="Membership" asp-action="Index"><i class="bi bi-card-checklist"></i> Memberships</a>
+                    <a class="nav-link-r" asp-controller="Session" asp-action="Index"><i class="bi bi-calendar-week"></i> Sessions</a>
                 </div>
             </nav>
 
@@ -70,14 +63,13 @@
                 </div>
             </header>
 
-            @RenderBody()
 
-  @*   <div class="container">
+    <div class="container" style="padding:3%;">
         <main role="main" class="pb-3">
+            @RenderBody()
         </main>
-    </div> *@
+    </div>
 
-    <!-- BACKEND: site.js -->
-    <script src="assets/js/site.js"></script>
+    <script src="~/js/site.js"></script>
 </body>
 </html>
